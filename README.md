@@ -14,8 +14,10 @@ This server is made using Django
 
 ## Project preview
 
-![WhatsApp Image 2024-03-29 at 20 13 55_61df255b](https://github.com/ZLaTaN003/Foodie-Blog/assets/140087832/e75146f9-f2db-40b6-a021-0a8d170f9384)
-![WhatsApp Image 2024-03-29 at 20 14 36_fa91ddf9](https://github.com/ZLaTaN003/Foodie-Blog/assets/140087832/fdc2b423-48b8-4042-bbc6-5aa5d6ce77ea)
+![WhatsApp Image 2024-03-29 at 20 13 55_94555fde](https://github.com/ZLaTaN003/FOODIE-BLOG-WEBSITE/assets/140087832/b06b8be1-6fef-4ce8-8b8c-5bafa59ac7cf)
+
+![WhatsApp Image 2024-03-29 at 20 14 36_2b695057](https://github.com/ZLaTaN003/FOODIE-BLOG-WEBSITE/assets/140087832/4360debc-ec24-4b18-8ddb-1ad34455ae3e)
+
 
 Demo Video https://www.youtube.com/watch?v=FNMklglCCWw
 
