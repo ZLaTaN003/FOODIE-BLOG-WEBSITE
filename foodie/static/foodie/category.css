@@ -1,0 +1,57 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+}
+
+legend h1{
+   color: rgb(226, 89, 89); 
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio label {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.custom-radio label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.custom-radio input[type="radio"]:checked + label::before {
+    background-color: rgb(226, 89, 89);
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color:rgb(226, 89, 89);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color:rgb(226, 89, 89);
+}

@@ -1,0 +1,92 @@
+{% extends "foodie/base.html" %}
+
+{% block title  %}
+FoodDetails
+{% endblock  %}
+
+{% block body %}
+<div class="heading">
+    <h3>Details</h3>
+    {% if trending %}
+    {{trending}}
+    {% endif %}
+   
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-6 ">
+            <img height="300px" width="370px" src="{{food.image_url}}"  alt="{{food.food_name}}">
+        </div>
+        <div class="col-lg-6">
+            <p><strong>{{food.food_name}}</strong></p>
+            <p>{{food.description}}</p>
+            <div class="col">
+            <p style="word-wrap: break-word;">{{food.food_description}}</p>
+        </div>
+            <p>{{food.food_price}}$</p>
+            <p>{{food.date_published}}</p>
+            <div class="review">
+            <form action="{% url "review" food.food_slug %}" method="post">
+                    {% csrf_token %}
+                    <label for="review">Review</label>
+                    <select name="review" id="review">
+                        <option value="A">Delicious</option>
+                        <option value="B">Tasty</option>
+                        <option value="C">Not Bad</option>
+                        <option value="D">Worst</option>
+                    </select>
+                    <button class="btn btn-success rounded-pill px-1 submitme" type="submit">Submit</button>
+
+         
+            </form>
+        </div>
+        <div class="delete">
+            <a href="{% url "delete_food" food.food_slug %}">
+                <button class="btn btn-danger rounded-pill px-3" type="submit">Delete</button>
+            </a>
+        </div>
+
+        <div class="edit">
+            <a href="{% url "edit_food" food.food_slug %}">
+                <button class="btn btn-primary rounded-pill px-3" type="submit">Edit</button>
+            </a>
+        </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-secondary rounded-pill px-1" type="submit">Comment</button>
+
+                </form>
+
+            </div>
+            <br>
+            <div class="card comments">
+                <div class="card-header">
+                  Comments
+                </div>
+            {% for comment in comments %}
+         
+                <div class="card-body">
+                  <h5 class="card-title">{{food.food_name}}</h5>
+                  <p class="card-text">{{comment.comment}}</p>
+                  <form action="{% url "delete_comment" food.food_slug comment.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-danger rounded-pill px-1" type="submit">Delete</button>
+
+                  </form>
+                </div>
+            {% endfor %}
+        </div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+
+{% endblock  %}
