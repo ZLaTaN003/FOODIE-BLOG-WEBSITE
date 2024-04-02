@@ -31,14 +31,11 @@ FoodDetails
                     {% csrf_token %}
                     <label for="review">Review</label>
                     <select name="review" id="review">
-                        <option value="A">Delicious</option>
-                        <option value="B">Tasty</option>
-                        <option value="C">Not Bad</option>
-                        <option value="D">Worst</option>
+                        {% for option, value in review_options.items %}
+                        <option {% if food.review_set.last.rating == option %} selected {% endif %} value="{{ option }}">{{ value }}</option>
+                        {% endfor %}
                     </select>
                     <button class="btn btn-success rounded-pill px-1 submitme" type="submit">Submit</button>
-
-         
             </form>
         </div>
         <div class="delete">
@@ -84,9 +81,6 @@ FoodDetails
 
         </div>
     </div>
-
-    </div>
-
-
+</div>
 
 {% endblock  %}
