@@ -22,6 +22,7 @@ def food_detail(request,slug_food): #addcomment here
     This view displays the detailed page and also comment processing logic is here also the reviews which is most in number
     """
     food = FoodItem.objects.get(food_slug=slug_food)
+    review_options = Review.review
     most_selected = Review.objects.filter(fooditem=food).values('rating').annotate(count=Count('rating')).order_by('-count').first()
     trending = None
     if most_selected:
@@ -39,7 +40,7 @@ def food_detail(request,slug_food): #addcomment here
 
             redirect(request.path_info)
     
-    ctx = {"food":food,"form":form,"comments":comments,"trending":trending}
+    ctx = {"food":food,"form":form,"comments":comments,"trending":trending,"review_options": review_options}
     return render(request,"foodie/food_detail.html",context=ctx)
 
 
@@ -124,5 +125,3 @@ def category(request):
     ctx = {"categories":categories,"items_to_display":items_to_display,"error": error}
 
     return render(request,"foodie/category.html",context=ctx)
-
-  
